@@ -210,7 +210,7 @@ function Panels() {
                     <CardHeader role="tab">
                       <a
                         aria-expanded={openedCollapses.includes("collapseOne")}
-                        href="#pablo"
+                        href="#"
                         data-parent="#accordion"
                         data-toggle="collapse"
                         onClick={(e) => {
@@ -246,7 +246,7 @@ function Panels() {
                     <CardHeader role="tab">
                       <a
                         aria-expanded={openedCollapses.includes("collapseTwo")}
-                        href="#pablo"
+                        href="#"
                         data-parent="#accordion"
                         data-toggle="collapse"
                         onClick={(e) => {
@@ -284,7 +284,7 @@ function Panels() {
                         aria-expanded={openedCollapses.includes(
                           "collapseThree"
                         )}
-                        href="#pablo"
+                        href="#"
                         data-parent="#accordion"
                         data-toggle="collapse"
                         onClick={(e) => {

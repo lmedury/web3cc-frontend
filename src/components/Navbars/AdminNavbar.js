@@ -131,7 +131,7 @@ function AdminNavbar(props) {
           </form>
           <Nav navbar>
             <NavItem>
-              <Link to="#pablo" className="nav-link">
+              <Link to="#" className="nav-link">
                 <i className="now-ui-icons media-2_sound-wave" />
                 <p>
                   <span className="d-lg-none d-md-block">Stats</span>
@@ -156,7 +156,7 @@ function AdminNavbar(props) {
               </DropdownMenu>
             </Dropdown>
             <NavItem>
-              <Link to="#pablo" className="nav-link">
+              <Link to="#" className="nav-link">
                 <i className="now-ui-icons users_single-02" />
                 <p>
                   <span className="d-lg-none d-md-block">Account</span>

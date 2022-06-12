@@ -45,7 +45,7 @@ import LockScreenPage from "views/Pages/LockScreenPage.js";
 
 let routes = [
   {
-    path: "/dashboard",
+    path: "/home",
     name: "Home",
     icon: "now-ui-icons design_app",
     component: Dashboard,
@@ -80,6 +80,7 @@ let routes = [
         component: RTL,
         layout: "/admin",
       },
+      */
       {
         path: "/register-page",
         name: "Register Page",
@@ -88,6 +89,7 @@ let routes = [
         component: RegisterPage,
         layout: "/auth",
       },
+      /*
       {
         path: "/login-page",
         name: "Login Page",

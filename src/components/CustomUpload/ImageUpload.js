@@ -24,6 +24,7 @@ import { Button } from "reactstrap";
 // core components
 import defaultImage from "assets/img/image_placeholder.jpg";
 import defaultAvatar from "assets/img/placeholder.jpg";
+import { uploadToIpfs } from "assets/web3/web3";
 
 function ImageUpload(props) {
   const [fileState, setFileState] = React.useState(null);
@@ -31,7 +32,7 @@ function ImageUpload(props) {
     props.avatar ? defaultAvatar : defaultImage
   );
   const fileInput = React.useRef();
-  const handleImageChange = (e) => {
+  const handleImageChange = async (e) => {
     e.preventDefault();
     let reader = new FileReader();
     let file = e.target.files[0];
@@ -42,6 +43,9 @@ function ImageUpload(props) {
     if (file) {
       reader.readAsDataURL(file);
     }
+    const image = await uploadToIpfs(file);
+    props.imageSelected(image.path);
+
   };
   // eslint-disable-next-line
   const handleSubmit = (e) => {
@@ -59,10 +63,10 @@ function ImageUpload(props) {
     setImagePreviewUrl(props.avatar ? defaultAvatar : defaultImage);
   };
   return (
-    <div className="fileinput text-center">
+    <div className="fileinput text-center" style={{...props.style}}>
       <input type="file" onChange={handleImageChange} ref={fileInput} />
-      <div className={"thumbnail" + (props.avatar ? " img-circle" : "")}>
-        <img src={imagePreviewUrl} alt="..." />
+      <div>
+        <img src={imagePreviewUrl} style={{width:'50%'}} alt="..." />
       </div>
       <div>
         {fileState === null ? (
@@ -70,7 +74,7 @@ function ImageUpload(props) {
             {props.avatar ? "Add Photo" : "Select image"}
           </Button>
         ) : (
-          <span>
+          <span className="d-none">
             <Button className="btn-round" onClick={() => handleClick()}>
               Change
             </Button>

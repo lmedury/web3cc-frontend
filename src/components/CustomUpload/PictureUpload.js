@@ -17,12 +17,13 @@
 import React from "react";
 
 import defaultImage from "assets/img/default-avatar.png";
+import { uploadToIpfs } from "assets/web3/web3";
 
 function PictureUpload(props) {
   // eslint-disable-next-line
   const [fileState, setFileState] = React.useState(null);
   const [imagePreviewUrl, setImagePreviewUrl] = React.useState(defaultImage);
-  const handleImageChange = (e) => {
+  const handleImageChange = async (e) => {
     e.preventDefault();
     let reader = new FileReader();
     let file = e.target.files[0];
@@ -33,6 +34,8 @@ function PictureUpload(props) {
     if (file) {
       reader.readAsDataURL(file);
     }
+    const image = await uploadToIpfs(file);
+    props.avatarSelected(image.path);
   };
   // eslint-disable-next-line
   const handleSubmit = (e) => {
@@ -42,7 +45,7 @@ function PictureUpload(props) {
     // you have to call it yourself
   };
   return (
-    <div className="picture-container">
+    <div className="picture-container" style={{...props.style}}>
       <div className="picture">
         <img src={imagePreviewUrl} className="picture-src" alt="..." />
         <input type="file" onChange={(e) => handleImageChange(e)} />

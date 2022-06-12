@@ -430,19 +430,19 @@ function Widgets() {
                           </DropdownToggle>
                           <DropdownMenu>
                             <DropdownItem
-                              href="#pablo"
+                              href="#"
                               onClick={(e) => e.preventDefault()}
                             >
                               Action
                             </DropdownItem>
                             <DropdownItem
-                              href="#pablo"
+                              href="#"
                               onClick={(e) => e.preventDefault()}
                             >
                               Another action
                             </DropdownItem>
                             <DropdownItem
-                              href="#pablo"
+                              href="#"
                               onClick={(e) => e.preventDefault()}
                             >
                               Something else here
@@ -477,7 +477,7 @@ function Widgets() {
                     <Button
                       className="btn-round"
                       color="primary"
-                      href="#pablo"
+                      href="#"
                       onClick={(e) => e.preventDefault()}
                     >
                       Add to Cart
@@ -502,7 +502,7 @@ function Widgets() {
                     <Button
                       className="btn-round btn-neutral"
                       color="warning"
-                      href="#pablo"
+                      href="#"
                       onClick={(e) => e.preventDefault()}
                     >
                       Add to Cart
@@ -515,7 +515,7 @@ function Widgets() {
           <Col md="6">
             <Card className="card-testimonial">
               <CardHeader className="card-header-avatar">
-                <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                <a href="#" onClick={(e) => e.preventDefault()}>
                   <img
                     alt="..."
                     className="img img-raised"

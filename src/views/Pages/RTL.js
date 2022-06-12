@@ -454,19 +454,19 @@ function RTL() {
                           </DropdownToggle>
                           <DropdownMenu right>
                             <DropdownItem
-                              href="#pablo"
+                              href="#"
                               onClick={(e) => e.preventDefault()}
                             >
                               عمل
                             </DropdownItem>
                             <DropdownItem
-                              href="#pablo"
+                              href="#"
                               onClick={(e) => e.preventDefault()}
                             >
                               إجراء آخر
                             </DropdownItem>
                             <DropdownItem
-                              href="#pablo"
+                              href="#"
                               onClick={(e) => e.preventDefault()}
                             >
                               شيء آخر هنا
@@ -501,7 +501,7 @@ function RTL() {
                     <Button
                       className="btn-round"
                       color="primary"
-                      href="#pablo"
+                      href="#"
                       onClick={(e) => e.preventDefault()}
                     >
                       أضف إلى السلة
@@ -526,7 +526,7 @@ function RTL() {
                     <Button
                       className="btn-round btn-neutral"
                       color="warning"
-                      href="#pablo"
+                      href="#"
                       onClick={(e) => e.preventDefault()}
                     >
                       أضف إلى السلة
@@ -539,7 +539,7 @@ function RTL() {
           <Col md="6">
             <Card className="card-testimonial">
               <CardHeader className="card-header-avatar">
-                <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                <a href="#" onClick={(e) => e.preventDefault()}>
                   <img
                     alt="..."
                     className="img img-raised"

@@ -102,21 +102,21 @@ function LoginPage() {
                       block
                       color="primary"
                       size="lg"
-                      href="#pablo"
+                      href="#"
                       className="mb-3 btn-round"
                     >
                       Get Started
                     </Button>
                     <div className="pull-left">
                       <h6>
-                        <a href="#pablo" className="link footer-link">
+                        <a href="#" className="link footer-link">
                           Create Account
                         </a>
                       </h6>
                     </div>
                     <div className="pull-right">
                       <h6>
-                        <a href="#pablo" className="link footer-link">
+                        <a href="#" className="link footer-link">
                           Need Help?
                         </a>
                       </h6>

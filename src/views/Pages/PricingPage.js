@@ -70,7 +70,7 @@ function Pricing() {
                     <Button
                       className="btn-round btn-neutral"
                       color="warning"
-                      href="#pablo"
+                      href="#"
                       onClick={(e) => e.preventDefault()}
                     >
                       Add to Cart
@@ -95,7 +95,7 @@ function Pricing() {
                     <Button
                       className="btn-round"
                       color="primary"
-                      href="#pablo"
+                      href="#"
                       onClick={(e) => e.preventDefault()}
                     >
                       Add to Cart
@@ -120,7 +120,7 @@ function Pricing() {
                     <Button
                       className="btn-round btn-neutral"
                       color="success"
-                      href="#pablo"
+                      href="#"
                       onClick={(e) => e.preventDefault()}
                     >
                       Add to Cart
@@ -145,7 +145,7 @@ function Pricing() {
                     <Button
                       className="btn-round btn-neutral"
                       color="danger"
-                      href="#pablo"
+                      href="#"
                       onClick={(e) => e.preventDefault()}
                     >
                       Add to Cart

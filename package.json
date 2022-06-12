@@ -9,6 +9,7 @@
     "classnames": "2.3.1",
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.9",
+    "ipfs-http-client": "50.1.2",
     "match-sorter": "6.3.0",
     "moment": "2.29.1",
     "node-sass": "6.0.0",
@@ -29,7 +30,8 @@
     "react-select": "4.3.1",
     "react-table": "7.7.0",
     "react-tagsinput": "3.19.0",
-    "reactstrap": "8.9.0"
+    "reactstrap": "8.9.0",
+    "web3": "^1.7.3"
   },
   "scripts": {
     "start": "export NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",

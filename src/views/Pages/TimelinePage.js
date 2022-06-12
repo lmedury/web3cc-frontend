@@ -124,19 +124,19 @@ function TimelinePage() {
                           </DropdownToggle>
                           <DropdownMenu>
                             <DropdownItem
-                              href="#pablo"
+                              href="#"
                               onClick={(e) => e.preventDefault()}
                             >
                               Action
                             </DropdownItem>
                             <DropdownItem
-                              href="#pablo"
+                              href="#"
                               onClick={(e) => e.preventDefault()}
                             >
                               Another action
                             </DropdownItem>
                             <DropdownItem
-                              href="#pablo"
+                              href="#"
                               onClick={(e) => e.preventDefault()}
                             >
                               Something else here

@@ -23,7 +23,7 @@ import PropTypes from "prop-types";
 function Footer(props) {
   return (
     <footer className={"footer" + (props.default ? " footer-default" : "")}>
-      <Container fluid={props.fluid}>
+      <Container fluid={props.fluid} style={{display:'none'}}>
         <nav>
           <ul>
             <li>

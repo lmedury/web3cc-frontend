@@ -100,7 +100,7 @@ function Sidebar(props) {
             key={key}
           >
             <a
-              href="#pablo"
+              href="#"
               data-toggle="collapse"
               aria-expanded={collapseStates[prop.state]}
               onClick={(e) => {
@@ -177,32 +177,31 @@ function Sidebar(props) {
             </div>
             <div className="info">
               <a
-                href="#pablo"
+                href="#"
                 data-toggle="collapse"
                 aria-expanded={openAvatar}
                 
               >
                 <span>
-                  Lalith Medury
-                  
+                  Lalith Aakash M
                 </span>
               </a>
               <Collapse isOpen={openAvatar}>
                 <ul className="nav">
                   <li>
-                    <a href="#pablo" onClick={(e) => e.preventDefault}>
+                    <a href="#" onClick={(e) => e.preventDefault}>
                       <span className="sidebar-mini-icon">MP</span>
                       <span className="sidebar-normal">My Profile</span>
                     </a>
                   </li>
                   <li>
-                    <a href="#pablo" onClick={(e) => e.preventDefault}>
+                    <a href="#" onClick={(e) => e.preventDefault}>
                       <span className="sidebar-mini-icon">EP</span>
                       <span className="sidebar-normal">Edit Profile</span>
                     </a>
                   </li>
                   <li>
-                    <a href="#pablo" onClick={(e) => e.preventDefault}>
+                    <a href="#" onClick={(e) => e.preventDefault}>
                       <span className="sidebar-mini-icon">S</span>
                       <span className="sidebar-normal">Settings</span>
                     </a>
