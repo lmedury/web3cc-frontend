@@ -46,7 +46,7 @@ import LockScreenPage from "views/Pages/LockScreenPage.js";
 import UserPage from "views/Pages/UserPage.js";
 import TimelinePage from "views/Pages/TimelinePage.js";
 import RegisterPage from "views/Pages/RegisterPage.js";
-
+import Profile from "views/Dashboard/Profile"
 
 let routes = [
   {
@@ -75,6 +75,13 @@ let routes = [
         name: "My Profile",
         mini: "MP",
         component: UserPage,
+        layout: "/admin",
+      },
+      {
+        path: "/profile/:id",
+        name: "User Profile",
+        mini: "UP",
+        component: Profile,
         layout: "/admin",
       },
       /*

@@ -103,9 +103,9 @@ function Dashboard() {
                 <CardBody>
                   {profiles && profiles.length > 0 ?
                     <Row>
-                      {profiles.map(profile => 
+                      {profiles.map((profile, index) => 
                           
-                          <Col key={profile.profile} xs={6} className="space-top">
+                          <Col key={profile.profile} xs={6} className="space-top pointer" onClick={() => window.location.href=`/admin/profile/${index}`}>
                             <Row>
                               <Col xs={3}>
                                 <img src={`${IPFS_URL}/${profile.avatar}`} style={{width:200}} alt="Profile" />

@@ -55,19 +55,24 @@ export async function getProfiles(){
     const count = await contract.methods.getNumberOfCreators().call();
     const profiles = [];
     for(let i=0; i<count; i++) {
-        const info = await contract.methods.getProfileInfo(i).call();
-        const details = {}
-        details.profile = info[0];
-        let metadataInfo = await fetch(`${IPFS_URL}/${info[1]}`);
-        metadataInfo = await metadataInfo.json();
-        details.metadata = {
-            "about": metadataInfo['about'] ? metadataInfo['about'] : 'Video Creator',
-            "activity": metadataInfo['activity'] ? metadataInfo['activity'] : 'I post videos all the time'
-        }
-        details.avatar = info[2];
-        details.banner = info[3];
+        const details = await getProfile(i);
         profiles.push(details);
     }
-    return profiles;
-    
+    return profiles;   
+}
+
+export async function getProfile(id) {
+    const contract = await getContract();
+    const info = await contract.methods.getProfileInfo(id).call();
+    const details = {}
+    details.profile = info[0];
+    let metadataInfo = await fetch(`${IPFS_URL}/${info[1]}`);
+    metadataInfo = await metadataInfo.json();
+    details.metadata = {
+        "about": metadataInfo['about'] ? metadataInfo['about'] : 'Video Creator',
+        "activity": metadataInfo['activity'] ? metadataInfo['activity'] : 'I post videos all the time'
+    }
+    details.avatar = info[2];
+    details.banner = info[3];
+    return details;
 }
