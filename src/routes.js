@@ -15,6 +15,7 @@
 
 */
 import Dashboard from "views/Dashboard/Dashboard.js";
+/*
 import Buttons from "views/Components/Buttons.js";
 import GridSystem from "views/Components/GridSystem.js";
 import Panels from "views/Components/Panels.js";
@@ -35,13 +36,17 @@ import VectorMap from "views/Maps/VectorMap.js";
 import Charts from "views/Charts/Charts.js";
 import Calendar from "views/Calendar/Calendar.js";
 import Widgets from "views/Widgets/Widgets.js";
-import UserPage from "views/Pages/UserPage.js";
-import TimelinePage from "views/Pages/TimelinePage.js";
+
 import RTL from "views/Pages/RTL.js";
 import PricingPage from "views/Pages/PricingPage.js";
 import LoginPage from "views/Pages/LoginPage.js";
-import RegisterPage from "views/Pages/RegisterPage.js";
+
 import LockScreenPage from "views/Pages/LockScreenPage.js";
+*/
+import UserPage from "views/Pages/UserPage.js";
+import TimelinePage from "views/Pages/TimelinePage.js";
+import RegisterPage from "views/Pages/RegisterPage.js";
+
 
 let routes = [
   {

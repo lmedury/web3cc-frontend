@@ -183,7 +183,7 @@ function Sidebar(props) {
                 
               >
                 <span>
-                  Lalith Aakash M
+                  0xe42D10Eb6d3....
                 </span>
               </a>
               <Collapse isOpen={openAvatar}>

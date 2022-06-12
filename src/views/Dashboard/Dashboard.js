@@ -15,25 +15,12 @@
 
 */
 import React from "react";
-// react plugin used to create charts
-import { Line } from "react-chartjs-2";
-// react plugin for creating vector maps
-import { VectorMap } from "react-jvectormap";
-import { getContract } from "assets/web3/web3";
+import { getNumberOfCreators, getProfiles } from "assets/web3/web3";
 
 // reactstrap components
 import {
   Card,
-  CardHeader,
   CardBody,
-  CardFooter,
-  CardTitle,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
-  Table,
-  Progress,
   Row,
   Col,
 } from "reactstrap";
@@ -41,53 +28,23 @@ import {
 // core components
 import PanelHeader from "components/PanelHeader/PanelHeader.js";
 
-import {
-  dashboardPanelChart,
-  dashboardActiveUsersChart,
-  dashboardSummerChart,
-  dashboardActiveCountriesCard,
-} from "variables/charts.js";
-
-import jacket from "assets/img/saint-laurent.jpg";
-import shirt from "assets/img/balmain.jpg";
-import swim from "assets/img/prada.jpg";
-
-import { table_data } from "variables/general.js";
-
-var mapData = {
-  AU: 760,
-  BR: 550,
-  CA: 120,
-  DE: 1300,
-  FR: 540,
-  GB: 690,
-  GE: 200,
-  IN: 200,
-  RO: 600,
-  RU: 300,
-  US: 2920,
-};
+import { IPFS_URL } from "assets/js/constants";
 
 function Dashboard() {
-  console.log(getContract())
-  const createTableData = () => {
-    var tableRows = [];
-    for (var i = 0; i < table_data.length; i++) {
-      tableRows.push(
-        <tr key={i}>
-          <td>
-            <div className="flag">
-              <img src={table_data[i].flag} alt="us_flag" />
-            </div>
-          </td>
-          <td>{table_data[i].country}</td>
-          <td className="text-right">{table_data[i].count}</td>
-          <td className="text-right">{table_data[i].percentage}</td>
-        </tr>
-      );
+  
+  const [creators, setCreators] = React.useState(0);
+  const [profiles, setProfiles] = React.useState([]);
+  
+  React.useEffect(() => {
+    async function getInfo(){
+      const info = await getNumberOfCreators();
+      setCreators(info);
+      const profilesArray = await getProfiles();
+      setProfiles(profilesArray);
     }
-    return tableRows;
-  };
+    getInfo();
+  }, [])
+
   return (
     <>
       <PanelHeader
@@ -131,7 +88,7 @@ function Dashboard() {
                         <div className="icon icon-info">
                           <i className="now-ui-icons users_single-02" />
                         </div>
-                        <h3 className="info-title">0</h3>
+                        <h3 className="info-title">{creators ? creators : 0}</h3>
                         <h6 className="stats-title">Creators</h6>
                       </div>
                     </div>
@@ -139,6 +96,36 @@ function Dashboard() {
                   
                 </Row>
               </CardBody>
+            </Card>
+
+            <h3>Profiles:</h3>
+            <Card className="card-stats card-raised">
+                <CardBody>
+                  {profiles && profiles.length > 0 ?
+                    <Row>
+                      {profiles.map(profile => 
+                          
+                          <Col key={profile.profile} xs={6} className="space-top">
+                            <Row>
+                              <Col xs={3}>
+                                <img src={`${IPFS_URL}/${profile.avatar}`} style={{width:200}} alt="Profile" />
+                              </Col>
+                              <Col xs={4}>
+                                <p className="bold">
+                                  {profile.profile.toUpperCase()}
+                                </p>
+                                <p>{profile.metadata.about}</p>
+                                <p>{profile.metadata.activity}</p>
+                              </Col>
+                            </Row>
+                            
+                            
+                          </Col>
+                           
+                      )}
+                    </Row> : <></>
+                  }
+                </CardBody>
             </Card>
             
           </Col>

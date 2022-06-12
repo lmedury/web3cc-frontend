@@ -74,7 +74,7 @@ function Admin(props) {
       icon: "now-ui-icons ui-1_bell-53",
       autoDismiss: 2,
     };
-    notificationAlert.current.notificationAlert(options);
+    //notificationAlert.current.notificationAlert(options);
   };
   const handleColorClick = (color) => {
     setBackgroundColor(color);

@@ -21,6 +21,7 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import "assets/scss/now-ui-dashboard.scss?v=1.5.0";
 import "assets/css/demo.css";
+import "assets/css/custom.css";
 
 import AdminLayout from "layouts/Admin.js";
 import AuthLayout from "layouts/Auth.js";
@@ -40,7 +41,7 @@ ReactDOM.render(
           return <AuthLayout {...props} />;
         }}
       />
-      <Redirect to="/admin/dashboard" />
+      <Redirect to="/admin/home" />
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")

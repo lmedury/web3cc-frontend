@@ -493,7 +493,7 @@ function ExtendedTables() {
                         </div>
                       </td>
                       <td className="td-name">
-                        <a href="#" onClick={(e) => e.preventDefault()}>
+                        <a href="#link" onClick={(e) => e.preventDefault()}>
                           Suede Biker Jacket
                         </a>
                         <br />
@@ -547,7 +547,7 @@ function ExtendedTables() {
                         </div>
                       </td>
                       <td className="td-name">
-                        <a href="#" onClick={(e) => e.preventDefault()}>
+                        <a href="#link" onClick={(e) => e.preventDefault()}>
                           Jersey T-Shirt
                         </a>
                         <br />
@@ -601,7 +601,7 @@ function ExtendedTables() {
                         </div>
                       </td>
                       <td className="td-name">
-                        <a href="#" onClick={(e) => e.preventDefault()}>
+                        <a href="#link" onClick={(e) => e.preventDefault()}>
                           Slim-Fit Swim Short
                         </a>
                         <br />

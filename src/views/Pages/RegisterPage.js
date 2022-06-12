@@ -32,8 +32,6 @@ import {
   Col,
   Form,
   InputGroup,
-  InputGroupAddon,
-  InputGroupText,
   Input,
   Button,
   Nav,
@@ -43,10 +41,6 @@ import {
 
 
 function RegisterPage() {
-  const [firstnameFocus, setfirstnameFocus] = React.useState(false);
-  const [lastnameFocus, setlastnameFocus] = React.useState(false);
-  const [emailFocus, setemailFocus] = React.useState(false);
-
   const [tab, setTab] = React.useState(0);
   const [profileName, setProfileName] = React.useState('');
   const [activity, setActivity] = React.useState('');
@@ -68,7 +62,14 @@ function RegisterPage() {
       "about": about
     }
     let data = await uploadToIpfs(JSON.stringify(body));
-    const register = await registerProfile(profileName, data.path, avatarSelected, imageSelected);
+    try{
+      const register = await registerProfile(profileName, data.path, avatarSelected, imageSelected);
+    } catch (err) {
+
+    } finally {
+      window.location.href="/admin/home";
+    }
+    
   }
   return (
     <>
@@ -109,7 +110,7 @@ function RegisterPage() {
                               <CardBody>
                                 <p>Profile Name:</p>
                                 <InputGroup
-                                  className={firstnameFocus ? "input-group-focus" : ""}
+                                  
                                 >
                                   <Input
                                     type="text"
@@ -120,7 +121,7 @@ function RegisterPage() {
 
                                 <p>What are you creating?</p>
                                 <InputGroup
-                                  className={firstnameFocus ? "input-group-focus" : ""}
+                                  
                                 >
                                   <Input
                                     type="text"
@@ -131,12 +132,12 @@ function RegisterPage() {
 
                                 <p>Description/About: </p>
                                 <InputGroup
-                                  className={firstnameFocus ? "input-group-focus" : ""}
+                                  
                                 >
                                   <Input
                                     type="textarea"
                                     placeholder="About"
-                                    onChange={(e) => setActivity(e.target.value)}
+                                    onChange={(e) => setAbout(e.target.value)}
                                   />
                                 </InputGroup>
                               </CardBody>
