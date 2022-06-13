@@ -171,7 +171,7 @@ function AdminNavbar(props) {
 }
 
 AdminNavbar.defaultProps = {
-  brandText: "DPATREON",
+  brandText: "WEB3CC",
 };
 
 AdminNavbar.propTypes = {

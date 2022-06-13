@@ -53,7 +53,7 @@ function AuthNavbar() {
             </NavbarToggler>
           </div>
           <Link to="/" className="navbar-brand">
-            DPATREON
+            WEB3CC
           </Link>
         </div>
         

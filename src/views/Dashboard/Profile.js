@@ -30,6 +30,9 @@ import PanelHeader from "components/PanelHeader/PanelHeader.js";
 
 import { IPFS_URL } from "assets/js/constants";
 import { useParams } from 'react-router-dom';
+import PostInput from "components/PostInput/PostInput";
+import PostCard from "components/Cards/PostCard";
+import {data} from '../../assets/data/profiles';
 
 function Profile() {
   
@@ -42,9 +45,13 @@ function Profile() {
     async function getInfo(){
       const {id} = routeParams;
       setProfileId(id);
+      /*
       const profileInfo = await getProfile(id);
       console.log(profileInfo);
       setInfo(profileInfo);
+      */
+      console.log(data[id]);
+      setInfo(data[id]);
     }
     getInfo();
   }, [routeParams])
@@ -60,13 +67,22 @@ function Profile() {
       <div className="content">
         <Row>
           <Col xs={12}>
-            <img src={info.banner ? `${IPFS_URL}/${info.banner}` : ''} alt="banner" style={{height:300, width:'100vw'}} />
+            <img src={info.banner ? info.banner : ''} alt="banner" style={{height:300, width:'100vw'}} />
             <div className="text-center">
-              <img src={info.avatar ? `${IPFS_URL}/${info.avatar}` : ''} alt="banner" style={{height:150, borderRadius: '50%', marginTop:'-5%'}} />
-              <p className="bold" style={{fontSize:40}}>{info.profile.toUpperCase()}</p>
+              <img src={info.avatar ? info.avatar : ''} alt="banner" style={{height:150, borderRadius: '50%', marginTop:'-5%'}} />
+              <p className="bold" style={{fontSize:30}}>{info.profile ? info.profile.toUpperCase() : ''}</p>
             </div>
           </Col>
         </Row>
+        <Row>
+          <Col xs={12}>
+            <PostInput profile={info.profile} avatar={info.avatar} />
+          </Col>
+          
+        </Row>
+        
+        <PostCard profile={info.profile} avatar={info.avatar} banner={info.banner} />
+       
       </div>
     </>
   );

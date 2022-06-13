@@ -165,7 +165,7 @@ function Sidebar(props) {
             className="simple-text logo-normal"
             target="_blank"
           >
-            dPatreon
+            WEB3CC
           </a>
           
         </div>

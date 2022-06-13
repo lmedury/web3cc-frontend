@@ -98,7 +98,7 @@ function Admin(props) {
     });
   };
   const getActiveRoute = (routes) => {
-    let activeRoute = "DPATREON";
+    let activeRoute = "WEB3CC";
     for (let i = 0; i < routes.length; i++) {
       if (routes[i].collapse) {
         let collapseActiveRoute = getActiveRoute(routes[i].views);

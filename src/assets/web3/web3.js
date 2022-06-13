@@ -1,41 +1,45 @@
 import { IPFS_URL } from 'assets/js/constants';
 import ipfsAPI from 'ipfs-http-client';
+import { data } from 'assets/data/profiles';
 const config = require('./config.json');
 const Web3 = require('web3');
 const ipfs = ipfsAPI.create('https://ipfs.infura.io:5001');
 
 
+
 let address;
+let web3;
+let contract;
+
+window.ethereum.enable().then(result => {
+    web3 = new Web3(window.ethereum);
+    if(web3) {
+        web3.eth.getAccounts().then(accounts => {
+            address = accounts[0];
+            contract = new web3.eth.Contract(config.ABI, config.CONTRACT);
+        });
+    }
+});
+
+export async function setupContract() {
+    
+}
+
 
 export async function uploadToIpfs(data) {
     return await ipfs.add(data);
 }
 
-export async function getContract() {
-    
-    try{
-        const web3 = new Web3(window.ethereum);
-        if(web3) {
-            web3.eth.getAccounts().then(accounts => {
-                address = accounts[0];
-            });
-        }
-        return new web3.eth.Contract(config.ABI, config.CONTRACT);
-    }catch (err) {
-        console.log(err);
-    } finally {
-
-    }
-}
 
 export async function registerProfile(profile, metadata, avatar, banner) {
+    web3 = new Web3(window.ethereum);
+    contract = new web3.eth.Contract(config.ABI, config.CONTRACT);
     try{
-        const contract = await getContract();
         if(!address) {
             const accounts = await new Web3(window.ethereum).eth.getAccounts();
-            console.log(accounts);
             address = accounts[0];
         }
+        
         await contract.methods.createProfile(profile, metadata, avatar, banner).send({from: address});
     }catch(err) {
         console.log(err);
@@ -46,12 +50,16 @@ export async function registerProfile(profile, metadata, avatar, banner) {
 }
 
 export async function getNumberOfCreators() {
-    const contract = await getContract();
+    return 3;
+    web3 = new Web3(window.ethereum);
+    contract = new web3.eth.Contract(config.ABI, config.CONTRACT);
     return await contract.methods.getNumberOfCreators().call();
 }
 
 export async function getProfiles(){
-    const contract = await getContract();
+    return data;
+    web3 = new Web3(window.ethereum);
+    contract = new web3.eth.Contract(config.ABI, config.CONTRACT);
     const count = await contract.methods.getNumberOfCreators().call();
     const profiles = [];
     for(let i=0; i<count; i++) {
@@ -62,7 +70,8 @@ export async function getProfiles(){
 }
 
 export async function getProfile(id) {
-    const contract = await getContract();
+    web3 = new Web3(window.ethereum);
+    contract = new web3.eth.Contract(config.ABI, config.CONTRACT);
     const info = await contract.methods.getProfileInfo(id).call();
     const details = {}
     details.profile = info[0];

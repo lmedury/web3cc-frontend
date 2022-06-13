@@ -57,6 +57,13 @@ let routes = [
     layout: "/admin",
   },
   {
+    path: "/profile/3",
+    name: "My Profile",
+    icon: "now-ui-icons design_bullet-list-67",
+    component: Dashboard,
+    layout: "/admin",
+  },
+  {
     collapse: true,
     path: "/pages",
     name: "Platform",

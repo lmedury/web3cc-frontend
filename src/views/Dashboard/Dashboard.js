@@ -63,7 +63,7 @@ function Dashboard() {
                         <div className="icon icon-primary">
                           <i className="now-ui-icons ui-2_chat-round" />
                         </div>
-                        <h3 className="info-title">0</h3>
+                        <h3 className="info-title">6</h3>
                         <h6 className="stats-title">Posts Created</h6>
                       </div>
                     </div>
@@ -108,14 +108,14 @@ function Dashboard() {
                           <Col key={profile.profile} xs={6} className="space-top pointer" onClick={() => window.location.href=`/admin/profile/${index}`}>
                             <Row>
                               <Col xs={3}>
-                                <img src={`${IPFS_URL}/${profile.avatar}`} style={{width:200}} alt="Profile" />
+                                <img src={profile.avatar} style={{width:200}} alt="Profile" />
                               </Col>
                               <Col xs={4}>
                                 <p className="bold">
                                   {profile.profile.toUpperCase()}
                                 </p>
-                                <p>{profile.metadata.about}</p>
-                                <p>{profile.metadata.activity}</p>
+                                <p>{profile.about}</p>
+                                <p>{profile.activity}</p>
                               </Col>
                             </Row>
                             
