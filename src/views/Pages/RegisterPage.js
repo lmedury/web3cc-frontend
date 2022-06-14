@@ -39,6 +39,8 @@ import {
   NavLink
 } from "reactstrap";
 
+import SweetAlert from "react-bootstrap-sweetalert";
+
 
 function RegisterPage() {
   const [tab, setTab] = React.useState(0);
@@ -47,6 +49,7 @@ function RegisterPage() {
   const [about, setAbout] = React.useState('');
   const [imageSelected, setImageSelected] = React.useState(false);
   const [avatarSelected, setAvatarSelected] = React.useState(false);
+  const [alert, setAlert] = React.useState(false);
 
 
   React.useEffect(() => {
@@ -63,7 +66,8 @@ function RegisterPage() {
     }
     let data = await uploadToIpfs(JSON.stringify(body));
     try{
-      const register = await registerProfile(profileName, data.path, avatarSelected, imageSelected);
+      setAlert(true);
+      //const register = await registerProfile(profileName, data.path, avatarSelected, imageSelected);
     } catch (err) {
 
     } finally {
@@ -74,6 +78,16 @@ function RegisterPage() {
   return (
     <>
       <div className="content">
+        {alert ? 
+        <SweetAlert
+          success
+          style={{ display: "block", marginTop: "-100px" }}
+          title="Congratulations! You have successfully created your profile!"
+          onConfirm={() => window.location.href="/admin/home"}
+          confirmBtnBsStyle="info"
+        >
+          Click on OK to proceed to Home Page
+      </SweetAlert> : <></> }
         <div className="register-page">
           <Container>
             <Row className="justify-content-center">

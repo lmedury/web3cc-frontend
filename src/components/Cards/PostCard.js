@@ -32,7 +32,7 @@ export default function PostCard(props) {
 
     return(
         
-        <Row>
+        <Row className="fade-in">
             <Col xs={{size:6, offset:3}}>
                 <Card>
                     <CardBody>
