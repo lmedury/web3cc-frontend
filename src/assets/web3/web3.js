@@ -50,14 +50,12 @@ export async function registerProfile(profile, metadata, avatar, banner) {
 }
 
 export async function getNumberOfCreators() {
-    return 3;
     web3 = new Web3(window.ethereum);
     contract = new web3.eth.Contract(config.ABI, config.CONTRACT);
     return await contract.methods.getNumberOfCreators().call();
 }
 
 export async function getProfiles(){
-    return data;
     web3 = new Web3(window.ethereum);
     contract = new web3.eth.Contract(config.ABI, config.CONTRACT);
     const count = await contract.methods.getNumberOfCreators().call();
