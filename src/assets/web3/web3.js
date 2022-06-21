@@ -39,7 +39,6 @@ export async function registerProfile(profile, metadata, avatar, banner) {
             const accounts = await new Web3(window.ethereum).eth.getAccounts();
             address = accounts[0];
         }
-        
         await contract.methods.createProfile(profile, metadata, avatar, banner).send({from: address});
     }catch(err) {
         console.log(err);
@@ -60,10 +59,16 @@ export async function getProfiles(){
     contract = new web3.eth.Contract(config.ABI, config.CONTRACT);
     const count = await contract.methods.getNumberOfCreators().call();
     const profiles = [];
-    for(let i=0; i<count; i++) {
-        const details = await getProfile(i);
-        profiles.push(details);
+    try{
+        for(let i=0; i<count; i++) {
+            console.log(i);
+            const details = await getProfile(i);
+            profiles.push(details);
+        }
+    } catch (err) {
+
     }
+    console.log(profiles);
     return profiles;   
 }
 
@@ -74,7 +79,9 @@ export async function getProfile(id) {
     const details = {}
     details.profile = info[0];
     let metadataInfo = await fetch(`${IPFS_URL}/${info[1]}`);
+    
     metadataInfo = await metadataInfo.json();
+    
     details.metadata = {
         "about": metadataInfo['about'] ? metadataInfo['about'] : 'Video Creator',
         "activity": metadataInfo['activity'] ? metadataInfo['activity'] : 'I post videos all the time'

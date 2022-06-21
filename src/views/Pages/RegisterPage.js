@@ -66,8 +66,8 @@ function RegisterPage() {
     }
     let data = await uploadToIpfs(JSON.stringify(body));
     try{
+      const register = await registerProfile(profileName, data.path, avatarSelected, imageSelected);
       setAlert(true);
-      //const register = await registerProfile(profileName, data.path, avatarSelected, imageSelected);
     } catch (err) {
 
     } finally {

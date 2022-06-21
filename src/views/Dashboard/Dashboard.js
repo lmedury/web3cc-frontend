@@ -108,14 +108,14 @@ function Dashboard() {
                           <Col key={profile.profile} xs={6} className="space-top pointer" onClick={() => window.location.href=`/admin/profile/${index}`}>
                             <Row>
                               <Col xs={3}>
-                                <img src={profile.avatar} style={{width:200}} alt="Profile" />
+                                <img src={`${IPFS_URL}/${profile.avatar}`} style={{width:200}} alt="Profile" />
                               </Col>
                               <Col xs={4}>
                                 <p className="bold">
                                   {profile.profile.toUpperCase()}
                                 </p>
-                                <p>{profile.about}</p>
-                                <p>{profile.activity}</p>
+                                <p>{profile.metadata.about}</p>
+                                <p>{profile.metadata.activity}</p>
                               </Col>
                             </Row>
                             
