@@ -45,13 +45,11 @@ function Profile() {
     async function getInfo(){
       const {id} = routeParams;
       setProfileId(id);
-      /*
+      
       const profileInfo = await getProfile(id);
       console.log(profileInfo);
       setInfo(profileInfo);
-      */
-      console.log(data[id]);
-      setInfo(data[id]);
+      
     }
     getInfo();
   }, [routeParams])
@@ -67,21 +65,21 @@ function Profile() {
       <div className="content">
         <Row>
           <Col xs={12}>
-            <img src={info.banner ? info.banner : ''} alt="banner" style={{height:300, width:'100vw'}} />
+            <img src={info.banner ? `${IPFS_URL}/${info.banner}` : ''} alt="banner" style={{height:300, width:'100vw'}} />
             <div className="text-center">
-              <img src={info.avatar ? info.avatar : ''} alt="banner" style={{height:150, borderRadius: '50%', marginTop:'-5%'}} />
+              <img src={info.avatar ? `${IPFS_URL}/${info.avatar}` : ''} alt="banner" style={{height:150, borderRadius: '50%', marginTop:'-5%'}} />
               <p className="bold" style={{fontSize:30}}>{info.profile ? info.profile.toUpperCase() : ''}</p>
             </div>
           </Col>
         </Row>
         <Row>
           <Col xs={12}>
-            <PostInput profile={info.profile} avatar={info.avatar} />
+            <PostInput profile={info.profile} avatar={info.avatar ? `${IPFS_URL}/${info.avatar}` : ''} />
           </Col>
           
         </Row>
         
-        <PostCard profile={info.profile} avatar={info.avatar} banner={info.banner} />
+        <PostCard profile={info.profile} avatar={info.avatar ? `${IPFS_URL}/${info.avatar}` : ''} banner={info.banner ? `${IPFS_URL}/${info.banner}` : ''} />
        
       </div>
     </>

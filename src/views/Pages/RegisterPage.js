@@ -156,7 +156,6 @@ function RegisterPage() {
                                 </InputGroup>
                               </CardBody>
                             </Card>
-                            <p style={{color:'red'}}>*This is a decentralized web3 project. Everything you mention here is public by default.</p>
                           </Col>
                         </Row>
                       

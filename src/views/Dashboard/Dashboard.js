@@ -23,6 +23,7 @@ import {
   CardBody,
   Row,
   Col,
+  Button
 } from "reactstrap";
 
 // core components
@@ -99,35 +100,34 @@ function Dashboard() {
             </Card>
 
             <h3>Profiles:</h3>
-            <Card className="card-stats card-raised">
-                <CardBody>
+            
                   {profiles && profiles.length > 0 ?
                     <Row>
                       {profiles.map((profile, index) => 
-                          
-                          <Col key={profile.profile} xs={6} className="space-top pointer" onClick={() => window.location.href=`/admin/profile/${index}`}>
+                          <Col key={profile.profile} style={{paddingLeft:'20px'}} xs={{span:6, offset:4}} className="space-top pointer" onClick={() => window.location.href=`/admin/profile/${index}`}>
                             <Row>
-                              <Col xs={3}>
-                                <img src={`${IPFS_URL}/${profile.avatar}`} style={{width:200}} alt="Profile" />
+                              <Col xs={12}>
+                                <img src={`${IPFS_URL}/${profile.banner}`} style={{width:500, height:300}} alt="Profile" />
                               </Col>
-                              <Col xs={4}>
+                              <Col xs={12} lg={2} className="text-center">
+                                <img  src={`${IPFS_URL}/${profile.avatar}`} style={{width:100, borderRadius:'50%', marginTop:'-30%'}} alt="Profile" />
                                 <p className="bold">
                                   {profile.profile.toUpperCase()}
                                 </p>
-                                <p>{profile.metadata.about}</p>
-                                <p>{profile.metadata.activity}</p>
+                                <Button color="warning">Visit Profile</Button>
+                              </Col>
+                              <Col xs={12} lg={3}>
+                                <p style={{whiteSpace:'normal', wordBreak:'break-all'}}>{profile.metadata.activity}</p>
+                                <p style={{whiteSpace:'normal', wordBreak:'break-all'}}>{profile.metadata.about}</p>
+                                
                               </Col>
                             </Row>
-                            
-                            
                           </Col>
                            
                       )}
                     </Row> : <></>
                   }
-                </CardBody>
-            </Card>
-            
+                
           </Col>
         </Row>
       </div>

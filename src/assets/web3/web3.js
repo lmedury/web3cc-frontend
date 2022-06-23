@@ -41,7 +41,7 @@ export async function registerProfile(profile, metadata, avatar, banner) {
         }
         await contract.methods.createProfile(profile, metadata, avatar, banner).send({from: address});
     }catch(err) {
-        console.log(err);
+        console.log(err)
     } finally {
         return ({success: true})
     }
@@ -58,17 +58,17 @@ export async function getProfiles(){
     web3 = new Web3(window.ethereum);
     contract = new web3.eth.Contract(config.ABI, config.CONTRACT);
     const count = await contract.methods.getNumberOfCreators().call();
+    console.log(count);
     const profiles = [];
     try{
         for(let i=0; i<count; i++) {
-            console.log(i);
+            
             const details = await getProfile(i);
             profiles.push(details);
         }
     } catch (err) {
 
     }
-    console.log(profiles);
     return profiles;   
 }
 
